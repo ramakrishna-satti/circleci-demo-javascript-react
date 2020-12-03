@@ -4,10 +4,33 @@ workflows:
   test-deploy:
     jobs:
       - test
-
+      - test-dev:
+          filters:
+            branches:
+              only:
+                - dev
+      
+      - test-stage:
+          filters:
+            branches:
+              only:
+                - 2.1-orb-example
      
 
 jobs:
+  test-dev:
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+  test-stage:
+    steps:
+      - checkout
+      - run:
+          name: echo 
+          command: echo 'This is test-stage'
+
   test:
     docker:
       - image: cimg/node:15.3.0
@@ -28,9 +51,3 @@ jobs:
               fi
       
       
-#       - run:
-#           name: Install Dependencies
-#           command: npm install
-#       - run:
-#           name: Run Tests
-#           command: npm run test
