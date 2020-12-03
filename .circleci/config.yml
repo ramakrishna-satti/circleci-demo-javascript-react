@@ -4,6 +4,9 @@ workflows:
   test-deploy:
     jobs:
       - test
+          filters:
+            branches:
+               only: rk
      
 
 jobs:
