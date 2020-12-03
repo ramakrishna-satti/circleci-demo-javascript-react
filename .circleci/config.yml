@@ -5,12 +5,19 @@ workflows:
     jobs:
       - test
       - test-dev:
+          requires:
+            - test
           filters:
             branches:
               only:
                 - rk
-      
+      - hold:
+          type: approval
+          requires:
+            - test-dev
       - test-stage:
+          requires:
+            - test-dev
           filters:
             branches:
               only:
