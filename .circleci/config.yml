@@ -14,8 +14,22 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Dependencies
-          command: npm install
+          name: Branch - RK
+          command: |
+              if [ "${CIRCLE_BRANCH}" == "rk" ];
+                then echo "This is from RK";
+              fi
       - run:
-          name: Run Tests
-          command: npm run test
+          name: Branch - Master
+          command: |
+              if [ "${CIRCLE_BRANCH}" == "master" ];
+                then echo "This is from master";
+              fi
+      
+      
+#       - run:
+#           name: Install Dependencies
+#           command: npm install
+#       - run:
+#           name: Run Tests
+#           command: npm run test
