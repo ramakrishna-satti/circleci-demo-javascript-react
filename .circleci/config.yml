@@ -32,12 +32,12 @@ jobs:
       - image: cimg/node:15.3.0
     steps:
       - checkout
-      - run:
-          name: Install Dependencies
-          command: npm install
+#       - run:
+#           name: Install Dependencies
+#           command: npm install
       - run:
           name: Feteching Shared(context) variable
-          command: echo '$con_var'
+          command: echo $con_var
   test-stage:
     docker:
       - image: cimg/node:15.3.0
