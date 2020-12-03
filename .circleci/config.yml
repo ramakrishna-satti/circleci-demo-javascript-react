@@ -1,12 +1,14 @@
 version: 2.1
 
 workflows:
+  version: 2
   test-deploy:
     jobs:
       - test
       - test-dev:
           requires:
             - test
+          context: dd
           filters:
             branches:
               only:
@@ -33,6 +35,9 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
+      - run:
+          name: Feteching Shared(context) variable
+          command: echo 'Here: $con_var'
   test-stage:
     docker:
       - image: cimg/node:15.3.0
