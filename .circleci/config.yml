@@ -19,12 +19,16 @@ workflows:
 
 jobs:
   test-dev:
+    docker:
+      - image: cimg/node:15.3.0
     steps:
       - checkout
       - run:
           name: Install Dependencies
           command: npm install
   test-stage:
+    docker:
+      - image: cimg/node:15.3.0
     steps:
       - checkout
       - run:
