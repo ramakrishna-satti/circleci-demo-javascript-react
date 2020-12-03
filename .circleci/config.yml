@@ -8,7 +8,7 @@ workflows:
       - test-dev:
           requires:
             - test
-          context: dd
+          context: org-global
           filters:
             branches:
               only:
