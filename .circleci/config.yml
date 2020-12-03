@@ -37,7 +37,7 @@ jobs:
           command: npm install
       - run:
           name: Feteching Shared(context) variable
-          command: echo 'Here: $con_var'
+          command: echo '$con_var'
   test-stage:
     docker:
       - image: cimg/node:15.3.0
