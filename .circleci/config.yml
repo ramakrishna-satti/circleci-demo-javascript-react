@@ -3,10 +3,8 @@ version: 2.1
 workflows:
   test-deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-               only: master
+      - test
+
      
 
 jobs:
