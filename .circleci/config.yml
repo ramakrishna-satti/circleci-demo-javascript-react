@@ -6,7 +6,7 @@ workflows:
       - test:
           filters:
             branches:
-               only: rk
+               only: master
      
 
 jobs:
